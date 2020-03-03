@@ -119,7 +119,7 @@ body ul li img {
             }
             var simg = getQueryVariable("si"),
                 rsimg = (simg == false) ? "/s72-c/" : "/" + simg + "/";
-            function relresult(r) {
+            function relpostimgcuplik(r) {
                 for (var l = 0; l < r.feed.entry.length; l++) {
                     var e = r.feed.entry[l];
                     reltitle[relnojudul] = e.title.$t, postcontent = "", "content" in e ? postcontent = e.content.$t : "summary" in e && (postcontent = e.summary.$t), relsummary[relnojudul] = saringtags(postcontent, numchars), postimg = "media$thumbnail" in e ? e.media$thumbnail.url.replace(/.*?:\/\//g, "//").replace(/\/s[0-9]+(\-c)?\//, rsimg) : "https://lh3.googleusercontent.com/-2kDTpC1nA9Y/Xl0mteFps1I/AAAAAAAABKA/o5xQDnM-7fIXeT5UblU1_YsV6T_undyVACLcBGAsYHQ/s72-c/detro-default.webp", relimg[relnojudul] = postimg;
@@ -148,7 +148,7 @@ body ul li img {
                 }
                 for (var g, c = 0, p = Math.floor((reltitle.length - 1) * Math.random()), m = p, d = getQueryVariable("pos"); c < relmaxtampil && (relurls[p] == d || (g = "<li class='news-title clearfix'>", g += "<a href='" + relurls[p] + "' rel='nofollow' target='_blank' title='" + reltitle[p] + "'><img src='" + relimg[p] + "' /></a>", g += "<a class='detrotitle' href='" + relurls[p] + "' target='_blank'>" + reltitle[p] + "</a>", g += "<span class='news-text'>" + relsummary[p] + " ... </span>", g += "</li>", document.write(g), ++c != relmaxtampil)) && (p < reltitle.length - 1 ? p++ : p = 0, p != m););
             }
-            for (var labels = getQueryVariable("labels"), relmaxtampil = getQueryVariable("num"), url = getQueryVariable("url"), res = labels.split(","), i = 0, text = ""; res[i];) text += '<script src="' + url + "/feeds/posts/default/-/" + res[i] + '?alt=json&amp;callback=relresult&amp;max-results=50"><\/script>', i++;
+            for (var labels = getQueryVariable("labels"), relmaxtampil = getQueryVariable("num"), url = getQueryVariable("url"), res = labels.split(","), i = 0, text = ""; res[i];) text += '<script src="' + url + "/feeds/posts/default/-/" + res[i] + '?alt=json&amp;callback=relpostimgcuplik&amp;max-results=50"><\/script>', i++;
             var relnojudul = 0,
                 numchars = 120,
                 reltitle = new Array,
