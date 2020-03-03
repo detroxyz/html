@@ -67,7 +67,7 @@ body li {
             text-decoration: none
         }
         
-        body ul li:hover a.relinkjdulx {
+        body ul li:hover a.detrotitle {
             color: #EA4335
         }
         
@@ -82,7 +82,7 @@ body ul li img {
     width: 100px;
 }
         
-        .relinkjdulx {
+        .detrotitle {
     font-size: 17px;
     margin-bottom: 5px;
     padding-top: 10px;
@@ -92,7 +92,7 @@ body ul li img {
             span.news-text {
                 display: none
             }
-            .relinkjdulx {
+            .detrotitle {
     font-size: 14px;
     margin-bottom: 5px;
     padding-top: 20px;
@@ -122,7 +122,7 @@ body ul li img {
             function relpostimgcuplik(r) {
                 for (var l = 0; l < r.feed.entry.length; l++) {
                     var e = r.feed.entry[l];
-                    reljudul[relnojudul] = e.title.$t, postcontent = "", "content" in e ? postcontent = e.content.$t : "summary" in e && (postcontent = e.summary.$t), relcuplikan[relnojudul] = saringtags(postcontent, numchars), postimg = "media$thumbnail" in e ? e.media$thumbnail.url.replace(/.*?:\/\//g, "//").replace(/\/s[0-9]+(\-c)?\//, rsimg) : "https://1.bp.blogspot.com/-LGEolwXn4BM/WS9-g9OMA_I/AAAAAAAAAU4/LWkMJrn8RI8m56N1U-10ZuLdAuFFJqTxQCLcB/s72/No%2BImage.png", relgambar[relnojudul] = postimg;
+                    reltitle[relnojudul] = e.title.$t, postcontent = "", "content" in e ? postcontent = e.content.$t : "summary" in e && (postcontent = e.summary.$t), relsummary[relnojudul] = saringtags(postcontent, numchars), postimg = "media$thumbnail" in e ? e.media$thumbnail.url.replace(/.*?:\/\//g, "//").replace(/\/s[0-9]+(\-c)?\//, rsimg) : "https://lh3.googleusercontent.com/-2kDTpC1nA9Y/Xl0mteFps1I/AAAAAAAABKA/o5xQDnM-7fIXeT5UblU1_YsV6T_undyVACLcBGAsYHQ/s72/detro-default.webp", relimg[relnojudul] = postimg;
                     for (var t = 0; t < e.link.length; t++)
                         if ("alternate" == e.link[t].rel) {
                             relurls[relnojudul] = e.link[t].href;
@@ -136,29 +136,28 @@ body ul li img {
                     if (r[e] == l) return !0;
                 return !1
             }
-            function artikelterkait() {
-                for (var r = new Array(0), l = new Array(0), e = new Array(0), t = new Array(0), a = 0; a < relurls.length; a++) contains(r, relurls[a]) || (r.length += 1, r[r.length - 1] = relurls[a], l.length += 1, l[l.length - 1] = reljudul[a], e.length += 1, e[e.length - 1] = relcuplikan[a], t.length += 1, t[t.length - 1] = relgambar[a]);
-                for (reljudul = l, relurls = r, relcuplikan = e, relgambar = t, a = 0; a < reljudul.length; a++) {
-                    var n = Math.floor((reljudul.length - 1) * Math.random()),
-                        u = reljudul[a],
+            function detrorelated() {
+                for (var r = new Array(0), l = new Array(0), e = new Array(0), t = new Array(0), a = 0; a < relurls.length; a++) contains(r, relurls[a]) || (r.length += 1, r[r.length - 1] = relurls[a], l.length += 1, l[l.length - 1] = reltitle[a], e.length += 1, e[e.length - 1] = relsummary[a], t.length += 1, t[t.length - 1] = relimg[a]);
+                for (reltitle = l, relurls = r, relsummary = e, relimg = t, a = 0; a < reltitle.length; a++) {
+                    var n = Math.floor((reltitle.length - 1) * Math.random()),
+                        u = reltitle[a],
                         i = relurls[a],
-                        s = relcuplikan[a],
-                        o = relgambar[a];
-                    reljudul[a] = reljudul[n], relurls[a] = relurls[n], relcuplikan[a] = relcuplikan[n], relgambar[a] = relgambar[n], reljudul[n] = u, relurls[n] = i, relcuplikan[n] = s, relgambar[n] = o
+                        s = relsummary[a],
+                        o = relimg[a];
+                    reltitle[a] = reltitle[n], relurls[a] = relurls[n], relsummary[a] = relsummary[n], relimg[a] = relimg[n], reltitle[n] = u, relurls[n] = i, relsummary[n] = s, relimg[n] = o
                 }
-                for (var g, c = 0, p = Math.floor((reljudul.length - 1) * Math.random()), m = p, d = getQueryVariable("pos"); c < relmaxtampil && (relurls[p] == d || (g = "<li class='news-title clearfix'>", g += "<a href='" + relurls[p] + "' rel='nofollow' target='_blank' title='" + reljudul[p] + "'><img src='" + relgambar[p] + "' /></a>", g += "<a class='relinkjdulx' href='" + relurls[p] + "' target='_blank'>" + reljudul[p] + "</a>", g += "<span class='news-text'>" + relcuplikan[p] + " ... </span>", g += "</li>", document.write(g), ++c != relmaxtampil)) && (p < reljudul.length - 1 ? p++ : p = 0, p != m););
+                for (var g, c = 0, p = Math.floor((reltitle.length - 1) * Math.random()), m = p, d = getQueryVariable("pos"); c < relmaxtampil && (relurls[p] == d || (g = "<li class='news-title clearfix'>", g += "<a href='" + relurls[p] + "' rel='nofollow' target='_blank' title='" + reltitle[p] + "'><img src='" + relimg[p] + "' /></a>", g += "<a class='detrotitle' href='" + relurls[p] + "' target='_blank'>" + reltitle[p] + "</a>", g += "<span class='news-text'>" + relsummary[p] + " ... </span>", g += "</li>", document.write(g), ++c != relmaxtampil)) && (p < reltitle.length - 1 ? p++ : p = 0, p != m););
             }
             for (var labels = getQueryVariable("labels"), relmaxtampil = getQueryVariable("num"), url = getQueryVariable("url"), res = labels.split(","), i = 0, text = ""; res[i];) text += '<script src="' + url + "/feeds/posts/default/-/" + res[i] + '?alt=json&amp;callback=relpostimgcuplik&amp;max-results=50"><\/script>', i++;
             var relnojudul = 0,
                 numchars = 120,
-                reljudul = new Array,
+                reltitle = new Array,
                 relurls = new Array,
-                relcuplikan = new Array,
-                relgambar = new Array;
-            document.write(text + '<script>artikelterkait();<\/script>');
+                relsummary = new Array,
+                relimg = new Array;
+            document.write(text + '<script>detrorelated();<\/script>');
         </script>
     </ul>
-    <div class='copy'>Related post by <a href='https://www.amp-blogger.com' target='_blank'>AMP Blogger</div>
 </body>
 
 </HTML>
