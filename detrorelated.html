@@ -12,13 +12,13 @@ a:hover{color:#0039e6;}
 
 body ul{list-style:none;margin:0px;padding:0px;display:block;width:100%}
 body li{width:33.333333333%;margin:0px 0px 15px 0px;float:left;padding:0px;overflow:hidden}
-body li a{width:100%;padding:0px 5px;display:block}
+body li a{width:100%;padding-right:10px;display:block}
 body li img{width:100%;margin:0px;display:block;transition:0.3s}
 body li img:hover{opacity:.8}
-body li .reltitle{display:block;margin:0px;font-weight:600;height:72px;overflow:hidden}
+body li .reltitle{display:block;margin:0px;font-weight:600;height:72px}
 
 @media screen and (max-width:480px){
-body li{width:100%;margin-bottom:10px;float:none;display:block;}
+body li{width:50%}
 }
 
 </style>
@@ -67,7 +67,7 @@ s = relsummary[a],
 o = relimg[a];
 reltitle[a] = reltitle[n], relurls[a] = relurls[n], relsummary[a] = relsummary[n], relimg[a] = relimg[n], reltitle[n] = u, relurls[n] = i, relsummary[n] = s, relimg[n] = o
 }
-for (var g, c = 0, p = Math.floor((reltitle.length - 1) * Math.random()), m = p, d = getQueryVariable("pos"); c < postshow && (relurls[p] == d || (g = "<li>", g += "<a href='" + relurls[p] + "' rel='nofollow' target='_blank' title='" + reltitle[p] + "'><img src='" + relimg[p] + "' /><span class='reltitle'>" + reltitle[p] + "</span></a>", g += "</li>", document.write(g), ++c != postshow)) && (p < reltitle.length - 1 ? p++ : p = 0, p != m););
+for (var g, c = 0, p = Math.floor((reltitle.length - 1) * Math.random()), m = p, d = getQueryVariable("pos"); c < postshow && (relurls[p] == d || (g = "<li>", g += "<a href='" + relurls[p] + "' rel='noopener' target='_blank' title='" + reltitle[p] + "'><img alt='" + reltitle[p] + "' src='" + relimg[p] + "' /><span class='reltitle'>" + reltitle[p] + "</span></a>", g += "</li>", document.write(g), ++c != postshow)) && (p < reltitle.length - 1 ? p++ : p = 0, p != m););
 }
 for (var labels = getQueryVariable("labels"), postshow = getQueryVariable("num"), url = getQueryVariable("url"), res = labels.split(","), i = 0, text = ""; res[i];) text += '<script src="' + url + "/feeds/posts/default/-/" + res[i] + '?alt=json&amp;callback=postfeeds&amp;max-results=50"><\/script>', i++;
 var relnotitle = 0,
