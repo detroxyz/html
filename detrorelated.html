@@ -13,7 +13,7 @@ a:hover{color:#0039e6;}
 body ul{list-style:none;margin:0px;padding:0px;display:block;width:100%}
 body li{width:50%;margin:0px 0px 20px 0px;float:left;padding:0px;overflow:hidden}
 body li a{display:block;width:100%;font-weight:700;margin-right:10px;}
-body li img{max-height:72px;margin:0px 7px 0px 0px;float:left;transition:0.3s}
+body li img{max-width:137px;width:100%;max-height:72px;margin:0px 7px 0px 0px;float:left;transition:0.3s}
 body li img:hover{opacity:.8}
 
 @media screen and (max-width:480px){
@@ -38,11 +38,11 @@ for (var e = r.split("<"), t = 0; t < e.length; t++) - 1 != e[t].indexOf(">") &&
 return e = e.join(""), e = e.substring(0, l - 1)
 }
 var simg = getQueryVariable("si"),
-
+rsimg = (simg == false) ? "/s1600/" : "/" + simg + "/";
 function postfeeds(r) {
 for (var l = 0; l < r.feed.entry.length; l++) {
 var e = r.feed.entry[l];
-reltitle[relnotitle] = e.title.$t, postcontent = "", "content" in e ? postcontent = e.content.$t : "summary" in e && (postcontent = e.summary.$t), relsummary[relnotitle] = saringtags(postcontent, numchars), postimg = "media$thumbnail" in e ? e.media$thumbnail.url.replace(/.*?:\/\//g, "//").replace(/\/s[0-9]+(\-c)?/, "/s1600") : "https://lh3.googleusercontent.com/-2kDTpC1nA9Y/Xl0mteFps1I/AAAAAAAABKA/o5xQDnM-7fIXeT5UblU1_YsV6T_undyVACLcBGAsYHQ/s72-c/detro-default.webp", relimg[relnotitle] = postimg;
+reltitle[relnotitle] = e.title.$t, postcontent = "", "content" in e ? postcontent = e.content.$t : "summary" in e && (postcontent = e.summary.$t), relsummary[relnotitle] = saringtags(postcontent, numchars), postimg = "media$thumbnail" in e ? e.media$thumbnail.url.replace(/.*?:\/\//g, "//").replace(/\/s[0-9]+(\-c)?/, "/h72") : "https://lh3.googleusercontent.com/-AUVOvPf2KG4/XmEnsJ4AxuI/AAAAAAAAAC0/yaoOrR4tHtMIMEQmURhFTKLKUD08qQ6rQCLcBGAsYHQ/h72/default-img.jpg", relimg[relnotitle] = postimg;
 for (var t = 0; t < e.link.length; t++)
 if ("alternate" == e.link[t].rel) {
 relurls[relnotitle] = e.link[t].href;
