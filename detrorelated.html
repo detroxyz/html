@@ -38,11 +38,11 @@ for (var e = r.split("<"), t = 0; t < e.length; t++) - 1 != e[t].indexOf(">") &&
 return e = e.join(""), e = e.substring(0, l - 1)
 }
 var simg = getQueryVariable("si"),
-rsimg = (simg == false) ? "/h72/" : "/" + simg + "/";
+rsimg = (simg == false) ? "/s1600/" : "/" + simg + "/";
 function postfeeds(r) {
 for (var l = 0; l < r.feed.entry.length; l++) {
 var e = r.feed.entry[l];
-reltitle[relnotitle] = e.title.$t, postcontent = "", "content" in e ? postcontent = e.content.$t : "summary" in e && (postcontent = e.summary.$t), relsummary[relnotitle] = saringtags(postcontent, numchars), postimg = "media$thumbnail" in e ? e.media$thumbnail.url.replace(/.*?:\/\//g, "//").replace(/\/s[0-9]+(\h72)?\//, rsimg) : "https://lh3.googleusercontent.com/-2kDTpC1nA9Y/Xl0mteFps1I/AAAAAAAABKA/o5xQDnM-7fIXeT5UblU1_YsV6T_undyVACLcBGAsYHQ/s72-c/detro-default.webp", relimg[relnotitle] = postimg;
+reltitle[relnotitle] = e.title.$t, postcontent = "", "content" in e ? postcontent = e.content.$t : "summary" in e && (postcontent = e.summary.$t), relsummary[relnotitle] = saringtags(postcontent, numchars), postimg = "gd$image" in e ? e.gd$image.url.replace(/.*?:\/\//g, "//").replace(/\/s[0-9]+(\s1600)?\//, rsimg) : "https://lh3.googleusercontent.com/-2kDTpC1nA9Y/Xl0mteFps1I/AAAAAAAABKA/o5xQDnM-7fIXeT5UblU1_YsV6T_undyVACLcBGAsYHQ/s72-c/detro-default.webp", relimg[relnotitle] = postimg;
 for (var t = 0; t < e.link.length; t++)
 if ("alternate" == e.link[t].rel) {
 relurls[relnotitle] = e.link[t].href;
@@ -68,7 +68,7 @@ reltitle[a] = reltitle[n], relurls[a] = relurls[n], relsummary[a] = relsummary[n
 }
 for (var g, c = 0, p = Math.floor((reltitle.length - 1) * Math.random()), m = p, d = getQueryVariable("pos"); c < postshow && (relurls[p] == d || (g = "<li>", g += "<a href='" + relurls[p] + "' rel='nofollow' target='_blank' title='" + reltitle[p] + "'><img src='" + relimg[p] + "' /></a>", g += "<a href='" + relurls[p] + "' target='_blank'>" + reltitle[p] + "</a>", g += "</li>", document.write(g), ++c != postshow)) && (p < reltitle.length - 1 ? p++ : p = 0, p != m););
 }
-for (var labels = getQueryVariable("labels"), postshow = getQueryVariable("num"), url = getQueryVariable("url"), res = labels.split(","), i = 0, text = ""; res[i];) text += '<script src="' + url + "/feeds/posts/summary/" + res[i] + '?alt=json&amp;callback=postfeeds&amp;max-results=50"><\/script>', i++;
+for (var labels = getQueryVariable("labels"), postshow = getQueryVariable("num"), url = getQueryVariable("url"), res = labels.split(","), i = 0, text = ""; res[i];) text += '<script src="' + url + "/feeds/posts/default/-/" + res[i] + '?alt=json&amp;callback=postfeeds&amp;max-results=50"><\/script>', i++;
 var relnotitle = 0,
 numchars = 65,
 reltitle = new Array,
