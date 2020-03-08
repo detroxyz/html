@@ -38,7 +38,7 @@ for (var e = r.split("<"), t = 0; t < e.length; t++) - 1 != e[t].indexOf(">") &&
 return e = e.join(""), e = e.substring(0, l - 1)
 }
 var simg = getQueryVariable("si"),
-rsimg = (simg == false) ? "/s1600/" : "/" + simg + "/";
+rsimg = (simg == true) ? "/s1600/" : "/" + simg + "/";
 function postfeeds(r) {
 for (var l = 0; l < r.feed.entry.length; l++) {
 var e = r.feed.entry[l];
