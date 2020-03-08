@@ -41,7 +41,7 @@ var simg = getQueryVariable("si"),
 function postfeeds(r) {
 for (var l = 0; l < r.feed.entry.length; l++) {
 var e = r.feed.entry[l];
-reltitle[relnotitle] = e.title.$t, postcontent = "", "content" in e ? postcontent = e.content.$t : "summary" in e && (postcontent = e.summary.$t), relsummary[relnotitle] = saringtags(postcontent, numchars), postimg = "media$thumbnail" in e ? e.media$thumbnail.url : "https://lh3.googleusercontent.com/-2kDTpC1nA9Y/Xl0mteFps1I/AAAAAAAABKA/o5xQDnM-7fIXeT5UblU1_YsV6T_undyVACLcBGAsYHQ/s72-c/detro-default.webp", relimg[relnotitle] = postimg;
+reltitle[relnotitle] = e.title.$t, postcontent = "", "content" in e ? postcontent = e.content.$t : "summary" in e && (postcontent = e.summary.$t), relsummary[relnotitle] = saringtags(postcontent, numchars), postimg = "media$thumbnail" in e ? e.media$thumbnail.$t : "https://lh3.googleusercontent.com/-2kDTpC1nA9Y/Xl0mteFps1I/AAAAAAAABKA/o5xQDnM-7fIXeT5UblU1_YsV6T_undyVACLcBGAsYHQ/s72-c/detro-default.webp", relimg[relnotitle] = postimg;
 for (var t = 0; t < e.link.length; t++)
 if ("alternate" == e.link[t].rel) {
 relurls[relnotitle] = e.link[t].href;
