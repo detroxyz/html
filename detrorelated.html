@@ -11,13 +11,14 @@ a:visited{color:#333;}
 a:hover{color:#0039e6;}
 
 #detroRelated{margin:0px;padding:0px;display:block;width:100%;overflow:hidden}
-.relcontent{width:33.333333333%;margin:0px 0px 15px 0px;float:left;display:inline-block;padding:0px 5px;overflow:hidden}
-.relcontent img{width:100%;margin:0px;display:block;transition:0.3s}
-.relcontent img:hover{opacity:.8}
-.relcontent .reltitle{display:block;margin:0px;font-weight:600;height:72px}
+.relcontent{width:33.333333333%;margin:0px 0px 15px 0px;float:left;overflow:hidden}
+.relsubcontent{padding:0px 5px;}
+.relsubcontent img{width:100%;margin:0px;display:block;transition:0.3s}
+.relsubcontent img:hover{opacity:.8}
+.relsubcontent .reltitle{display:block;margin:0px;font-weight:600;height:72px}
 
 @media screen and (max-width:480px){
-body li{width:50%}
+.relcontent{width:50%}
 }
 
 </style>
@@ -66,7 +67,7 @@ s = relsummary[a],
 o = relimg[a];
 reltitle[a] = reltitle[n], relurls[a] = relurls[n], relsummary[a] = relsummary[n], relimg[a] = relimg[n], reltitle[n] = u, relurls[n] = i, relsummary[n] = s, relimg[n] = o
 }
-for (var g, c = 0, p = Math.floor((reltitle.length - 1) * Math.random()), m = p, d = getQueryVariable("pos"); c < postshow && (relurls[p] == d || (g = "<div class='relcontent'>", g += "<a href='" + relurls[p] + "' rel='noopener' target='_blank' title='" + reltitle[p] + "'><img alt='" + reltitle[p] + "' src='" + relimg[p] + "' /><span class='reltitle'>" + reltitle[p] + "</span></a>", g += "</div>", document.write(g), ++c != postshow)) && (p < reltitle.length - 1 ? p++ : p = 0, p != m););
+for (var g, c = 0, p = Math.floor((reltitle.length - 1) * Math.random()), m = p, d = getQueryVariable("pos"); c < postshow && (relurls[p] == d || (g = "<div class='relcontent'>", g += "<div class='subcontent'><a href='" + relurls[p] + "' rel='noopener' target='_blank' title='" + reltitle[p] + "'><img alt='" + reltitle[p] + "' src='" + relimg[p] + "' /><span class='reltitle'>" + reltitle[p] + "</span></a></div>", g += "</div>", document.write(g), ++c != postshow)) && (p < reltitle.length - 1 ? p++ : p = 0, p != m););
 }
 for (var labels = getQueryVariable("labels"), postshow = getQueryVariable("num"), url = getQueryVariable("url"), res = labels.split(","), i = 0, text = ""; res[i];) text += '<script src="' + url + "/feeds/posts/default/-/" + res[i] + '?alt=json&amp;callback=postfeeds&amp;max-results=50"><\/script>', i++;
 var relnotitle = 0,
