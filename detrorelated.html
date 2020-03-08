@@ -13,7 +13,7 @@ a:hover{color:#0039e6;}
 body ul{list-style:none;margin:0px;padding:0px;display:block;width:100%}
 body li{width:50%;margin:0px 0px 20px 0px;float:left;padding:0px;overflow:hidden}
 body li a{display:block;width:100%;font-weight:700;margin-right:10px;}
-body li img{max-width:72px;margin:0px 7px 0px 0px;float:left;transition:0.3s}
+body li img{max-height:72px;margin:0px 7px 0px 0px;float:left;transition:0.3s}
 body li img:hover{opacity:.8}
 
 @media screen and (max-width:480px){
@@ -38,7 +38,7 @@ for (var e = r.split("<"), t = 0; t < e.length; t++) - 1 != e[t].indexOf(">") &&
 return e = e.join(""), e = e.substring(0, l - 1)
 }
 var simg = getQueryVariable("si"),
-rsimg = (simg == false) ? "/s1600/" : "/" + simg + "/";
+
 function postfeeds(r) {
 for (var l = 0; l < r.feed.entry.length; l++) {
 var e = r.feed.entry[l];
