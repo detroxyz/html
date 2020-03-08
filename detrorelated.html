@@ -12,10 +12,10 @@ a:hover{color:#0039e6;}
 
 #detroRelated{margin:0px;padding:0px;display:block;width:100%;overflow:hidden}
 .relcontent{width:33.333333333%;margin:0px 0px 15px 0px;float:left;overflow:hidden}
-.relsubcontent{padding:0px 5px;}
-.relsubcontent img{width:100%;margin:0px;display:block;transition:0.3s}
-.relsubcontent img:hover{opacity:.8}
-.relsubcontent .reltitle{display:block;margin:0px;font-weight:600;height:72px}
+.subcontent{padding:0px 5px;}
+.subcontent img{width:100%;margin:0px;display:block;transition:0.3s;border-radius:2px}
+.subcontent img:hover{opacity:.8}
+.subcontent .reltitle{display:block;margin:0px;font-weight:600;height:72px}
 
 @media screen and (max-width:480px){
 .relcontent{width:50%}
@@ -43,7 +43,7 @@ rsimg = (simg == false) ? "/s1600/" : "/" + simg + "/";
 function postfeeds(r) {
 for (var l = 0; l < r.feed.entry.length; l++) {
 var e = r.feed.entry[l];
-reltitle[relnotitle] = e.title.$t, postcontent = "", "content" in e ? postcontent = e.content.$t : "summary" in e && (postcontent = e.summary.$t), relsummary[relnotitle] = saringtags(postcontent, numchars), postimg = "media$thumbnail" in e ? e.media$thumbnail.url.replace(/.*?:\/\//g, "//").replace(/\/s[0-9]+(\-c)?/, "/h72") : "https://lh3.googleusercontent.com/-AUVOvPf2KG4/XmEnsJ4AxuI/AAAAAAAAAC0/yaoOrR4tHtMIMEQmURhFTKLKUD08qQ6rQCLcBGAsYHQ/h72/default-img.jpg", relimg[relnotitle] = postimg;
+reltitle[relnotitle] = e.title.$t, postcontent = "", "content" in e ? postcontent = e.content.$t : "summary" in e && (postcontent = e.summary.$t), relsummary[relnotitle] = saringtags(postcontent, numchars), postimg = "media$thumbnail" in e ? e.media$thumbnail.url.replace(/.*?:\/\//g, "//").replace(/\/s[0-9]+(\-c)?/, "/w185-h97-p-k-no-nu") : "https://lh3.googleusercontent.com/-AUVOvPf2KG4/XmEnsJ4AxuI/AAAAAAAAAC0/yaoOrR4tHtMIMEQmURhFTKLKUD08qQ6rQCLcBGAsYHQ/w185-h97-p-k-no-nu/default-img.jpg", relimg[relnotitle] = postimg;
 for (var t = 0; t < e.link.length; t++)
 if ("alternate" == e.link[t].rel) {
 relurls[relnotitle] = e.link[t].href;
