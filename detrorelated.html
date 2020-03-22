@@ -41,7 +41,7 @@ rsimg = (simg == false) ? "/s1600/" : "/" + simg + "/";
 function postfeeds(r) {
 for (var l = 0; l < r.feed.entry.length; l++) {
 var e = r.feed.entry[l];
-reltitle[relnotitle] = e.title.$t, postcontent = "", "content" in e ? postcontent = e.content.$t : "summary" in e && (postcontent = e.summary.$t), relsummary[relnotitle] = saringtags(postcontent, numchars), postimg = "media$thumbnail" in e ? e.media$thumbnail.url.replace(/.*?:\/\//g, "//").replace(/\/s[0-9]+(\-c)?/, "/w185-h97-p-k-no-nu") : "https://lh3.googleusercontent.com/-AUVOvPf2KG4/XmEnsJ4AxuI/AAAAAAAAAC0/yaoOrR4tHtMIMEQmURhFTKLKUD08qQ6rQCLcBGAsYHQ/w185-h97-p-k-no-nu/default-img.jpg", relimg[relnotitle] = postimg;
+reltitle[relnotitle] = e.title.$t, postcontent = "", "content" in e ? postcontent = e.content.$t : "summary" in e && (postcontent = e.summary.$t), relsummary[relnotitle] = saringtags(postcontent, numchars), postimg = "media$thumbnail" in e ? e.media$thumbnail.url.replace(/.*?:\/\//g, "//").replace(/\/s[0-9]+(\-c)?/, "/w185-h97-p-k-no-nu") : "https://lh3.googleusercontent.com/-VyIOQ7y3ra4/XndhmvMmy3I/AAAAAAAAAIs/PrHHjI6cRAYtkEEvCxeXLoLXHpB11GgzQCLcBGAsYHQ/s1600/detro-default-image.png", relimg[relnotitle] = postimg;
 for (var t = 0; t < e.link.length; t++)
 if ("alternate" == e.link[t].rel) {
 relurls[relnotitle] = e.link[t].href;
