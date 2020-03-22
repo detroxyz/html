@@ -10,15 +10,15 @@ body{font-size:95%;color:#333;font-family:-apple-system,BlinkMacSystemFont,'Sego
 a:link{color:#333;text-decoration:none;outline:none;transition:0.3s}
 a:visited{color:#333;}
 a:hover{color:#00aaff;}
-#detroRelated{margin:0px;padding:0px;display:block;width:100%;overflow:hidden}
-.relcontent{width:33.333333333%;margin:0px 0px 15px 0px;float:left;overflow:hidden}
-.subcontent{margin-right:7px;background-color:#fff;border-radius:5px}
+#detroRelated{display:grid;grid-gap:5px;grid-template-columns:auto auto auto;overflow:hidden}
+.relcontent{overflow:hidden;display:block}
+.subcontent{background-color:#fff;border-radius:5px}
 .subcontent img{width:100%;margin:0px;display:block;transition:0.3s;border-radius:5px 5px 0px 0px}
 .subcontent img:hover{opacity:.8}
-.subcontent .reltitle{display:block;margin:0px;font-weight:600;height:62px}
+.subcontent .reltitle{display:block;margin:0px;font-weight:600}
 @media screen and (max-width:480px){
 body{font-size:85%}
-.relcontent{width:50%}
+#detroRelated{grid-template-columns:auto auto}
 .subcontent .reltitle{font-weight:400;text-align:center}
 }
 </style>
